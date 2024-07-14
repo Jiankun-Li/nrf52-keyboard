@@ -287,6 +287,8 @@ void sleep(enum SLEEP_REASON reason)
 {
     switch (reason) {
     case SLEEP_NO_CONNECTION:
+	notify_sleep(SLEEP_EVT_MANUAL);
+        break;
     case SLEEP_TIMEOUT:
         notify_sleep(SLEEP_EVT_AUTO);
         break;
