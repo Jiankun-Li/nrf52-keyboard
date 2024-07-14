@@ -109,7 +109,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* key combination for command */
 #define IS_COMMAND() ( \
-    keyboard_report->mods == (MOD_BIT(KC_LCTRL) | MOD_BIT(KC_LALT)))
+    keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT)))
+    // keyboard_report->mods == (MOD_BIT(KC_LCTRL) | MOD_BIT(KC_LALT)))
 
 static const uint8_t row_pin_array[MATRIX_ROWS] = { 11, 10, 9, 8, 7, 12 };
 static const uint8_t column_pin_array[MATRIX_COLS] =  { 31, 30, 29, 28, 27, 26, 25, 21, 20, 13, 14, 15, 16, 17, 18, 19 };
