@@ -297,7 +297,7 @@ void sleep(enum SLEEP_REASON reason)
         notify_sleep(SLEEP_EVT_MANUAL_NO_MATRIX_WAKEUP);
         break;
     case SLEEP_NOT_PWRON:
-        matrix_deinit();
+       // matrix_deinit();
         sleep_mode_enter(true);
         break;
     default:
