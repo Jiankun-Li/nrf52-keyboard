@@ -113,7 +113,6 @@ static void identities_set(pm_peer_id_list_skip_t skip)
 
 static void ble_disconnect()
 {
-    /*
     sd_ble_gap_adv_stop(m_advertising.adv_handle);
     if (m_conn_handle != BLE_CONN_HANDLE_INVALID) {
         ret_code_t err_code = sd_ble_gap_disconnect(m_conn_handle,
@@ -122,27 +121,7 @@ static void ble_disconnect()
             APP_ERROR_CHECK(err_code);
         }
     }
-    */
-    
-    // Prevent device from advertising on disconnect.
-    ble_adv_modes_config_t config;
-    advertising_config_get(&config);
-    config.ble_adv_on_disconnect_disabled = true;
-    ble_advertising_modes_config_set(&m_advertising, &config);
-
-    // Disconnect all other bonded devices that currently are connected.
-    ble_conn_state_for_each_connected(device_disconnect, NULL);
-
-    // In case of advertising
-    if (m_advertising.adv_mode_current != BLE_ADV_MODE_IDLE) {
-        (void)sd_ble_gap_adv_stop(m_advertising.adv_handle);
-    }
-
-    if (m_conn_handle != BLE_CONN_HANDLE_INVALID) {
-        on_disconnect_handler = on_disconnect;
-    } else if (on_disconnect != NULL) {
-        app_sched_event_put(NULL, 0, on_disconnect);
-    }
+   
 }
 
 #ifdef BUTTONLESS_DFU
