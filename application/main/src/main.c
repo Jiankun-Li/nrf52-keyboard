@@ -377,7 +377,13 @@ if (!sleep_flag)
     switch_device_init();
 #endif
     advertising_start(erase_bonds);
-
+	 
+#if !defined(BOOTMAGIC_ENABLE) && defined(BOOTCHECK_ENABLE)
+    //恢复sleep reason
+    if (!sleep_reason_get()) {
+        sleep_reason_set(true);
+    }
+#endif
     trig_event_param(USER_EVT_STAGE, KBD_STATE_INITED);
 }
     // Enter main loop.
