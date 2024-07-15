@@ -35,6 +35,7 @@ static nrf_saadc_value_t m_buffer_pool[2][TOTAL_SAMPLES_BUFFER];
 APP_TIMER_DEF(adc_timer);
 
 static bool saadc_inited = false;
+static bool first_run = true;
 static uint8_t callback_times;
 
 /**
