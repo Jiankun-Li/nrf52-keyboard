@@ -99,6 +99,7 @@
 #include "keyboard/keyboard_led.h"
 #include "keyboard/keyboard_matrix.h"
 #include "protocol/usb_comm.h"
+#include "sleep_reason.h"
 
 #define DEAD_BEEF 0xDEADBEEF /**< Value used as error code on stack dump, can be used to identify stack location on stack unwind. */
 #if APP_TIMER_CONFIG_USE_SCHEDULER == 1
