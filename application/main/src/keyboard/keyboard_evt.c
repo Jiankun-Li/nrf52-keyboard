@@ -130,7 +130,7 @@ static void internal_event_handler(enum user_event event, void* arg)
                advertising_slow();
             else
                 wait_ms(1000);
-                sleep(SLEEP_NO_CONNECTION);
+                sleep(SLEEP_MANUALLY);
         }
         break;
     case USER_EVT_BLE_PASSKEY_STATE:
