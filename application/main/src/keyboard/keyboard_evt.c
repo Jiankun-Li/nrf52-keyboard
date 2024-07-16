@@ -126,7 +126,7 @@ static void internal_event_handler(enum user_event event, void* arg)
     case USER_EVT_BLE_STATE_CHANGE:
         // 蓝牙没有连接，若没有接通电源则过1s睡眠
         if (subEvent == BLE_STATE_DISCONNECT) {
-            if (power_attached)
+            if (!power_attached)
                advertising_slow();
             else
                 wait_ms(1000);
