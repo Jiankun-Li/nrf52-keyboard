@@ -129,7 +129,7 @@ static void internal_event_handler(enum user_event event, void* arg)
             if (power_attached){
                advertising_slow();
             }else{
-                wait_ms(1000);
+                wait_ms(50);
                 sleep(SLEEP_NO_CONNECTION);
             }
         }
