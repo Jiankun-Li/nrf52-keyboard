@@ -124,12 +124,12 @@ static void internal_event_handler(enum user_event event, void* arg)
         keyboard_powersave(!power_attached);
         break;
     case USER_EVT_BLE_STATE_CHANGE:
-        // 蓝牙没有连接，若没有接通电源则过2s睡眠
+        // 蓝牙没有连接，若没有接通电源则过50ms睡眠
         if (subEvent == BLE_STATE_DISCONNECT) {
             if (power_attached){
                advertising_slow();
             }else{
-                wait_ms(2000);
+                wait_ms(50);
                 sleep(SLEEP_NO_CONNECTION);
             }
         }
